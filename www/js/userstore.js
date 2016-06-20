@@ -1,5 +1,5 @@
 angular.module('UserDirectory.userstore', ['constants','firebase'])
-	.factory('UserStore', function(FBURL,FBURLCountries,FBURLCentri,$firebaseObject,$firebaseArray){
+	.factory('UserStore', function(FBURL,FBURLCountries,FBURLCentri,$firebaseObject,$firebaseArray,$state){
 		var users = angular.fromJson(window.localStorage['users'] || '[]' );
 		console.log("I am in userstore dai-------------");
 		console.log(FBURL);
@@ -61,9 +61,10 @@ angular.module('UserDirectory.userstore', ['constants','firebase'])
 		  },
 
 		  remove: function(userId){
-		   var ref = new Firebase(FBURL + id);
+		   var ref = new Firebase(FBURL + userId);
            var user = $firebaseObject(ref);
            user.$remove();
+		  $state.go('list');
 		  
 		  },
 

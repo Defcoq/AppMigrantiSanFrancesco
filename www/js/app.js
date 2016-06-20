@@ -124,6 +124,7 @@
 
     $scope.remove = function(user){
       UserStore.remove(user.$id);
+	  
     }
 	
 	$scope.stampa = function(user)
