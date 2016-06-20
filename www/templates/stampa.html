@@ -1,0 +1,102 @@
+<ion-view view-title="Dettaglio Migrante">
+	<ion-content>
+		<div class="list card">
+		<div class="item item-image">
+          <img ng-if="!user.image" ng-src="img/imageplaceholder.png" width="200px" />
+		  <img ng-if="user.image" ng-src="{{user.image}}" width="200px" />
+        </div>
+		
+		 <label class="item item-input">
+		    Nome : {{user.nome}}
+		  </label>
+		  
+		   <label class="item item-input">
+		    Cognome : {{user.cognome}}
+		  </label>
+		  
+		  <label class="item item-input">
+		    Codice Fiscale : {{user.codicefiscale}}
+		  </label>
+		  
+		  <label class="item item-input">
+		    Data Nascita : {{user.datanascitastring}}
+		  </label>
+		  
+		  
+		  
+		   <label class="item item-input">
+		    Luogo Nascita : {{user.luogonascita}}
+		  </label>
+		  
+		   <label class="item item-input">
+		    Provenienza : {{user.provenienza}}
+		  </label>
+		  
+		  <label class="item item-input">
+		    Cittadinanza : {{user.cittadinanza}}
+		  </label>
+		  
+		  <label class="item item-input">
+		    Data Ingresso Italia : {{user.dataingressostring}}
+		  </label>
+		  
+		  
+		  
+		   
+		   <label class="item item-text-wrap">
+		    Paesi Transitati : <span ng-repeat="paesetransito in user.paesetransito"> {{paesetransito}} -  </span>
+		  </label>
+		  
+		   <label class="item item-text-wrap">
+		    Lingue Parlate :<span ng-repeat="item in user.linguaparlata"> {{item}} -  </span>
+		  </label>
+		  
+		  <label class="item item-input">
+		    Religione : {{user.religione}}
+		  </label>
+		  
+		  <label class="item item-input">
+		    Primo Centro Acc. : {{user.primocentrodiaccoglianza}}
+		  </label>
+		  
+		  
+		  
+		   
+		   <label class="item item-input">
+		    Indirizzo Centro : {{user.indirizzocentro}}
+		  </label>
+		  
+		   <label class="item item-input">
+		    Medico Curante : {{user.medicocurante}}
+		  </label>
+		  
+		  <label class="item item-input">
+		    Situazione Sanitaria : {{user.situazionesanitario}}
+		  </label>
+		  
+		  <label class="item item-input">
+		    Data Commissione. : {{user.datacommissionestring}}
+		  </label>
+		  
+		  
+		   <label class="item item-input">
+		    Esito Commissione : {{user.esitocommissione}}
+		  </label>
+		  
+		   <label class="item item-input">
+		    Ricorso : {{user.ricorso}}
+		  </label>
+		  
+		  <label class="item item-input">
+		    Studio Avv : {{user.studioavvocato}}
+		  </label>
+		  
+		  <label class="item item-text-wrap">
+		    Note : {{user.note}}
+		  </label>
+		  
+		 
+
+		</div>
+	</ion-content>
+</ion-view>

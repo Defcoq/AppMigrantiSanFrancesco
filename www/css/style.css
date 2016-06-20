@@ -1,0 +1,46 @@
+/* Empty. Add your own CSS if you like */
+
+.slider{
+	height: 100%;
+}
+
+.card {
+  margin: 20px 20px; }
+  .card.list .item h2 {
+    border-bottom: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #aaaaaa;
+    padding-bottom: 10px;
+    font-size: 15pt; }
+
+
+.image-picker {
+  padding: 25px 25px 12px 0;
+  display: flex;
+  justify-content: center; }
+  .image-picker span {
+    color: #555555; }
+  .image-picker .ion-camera  {
+    font-size: 100pt; }
+	
+ .image-picker .ion-images  {
+    font-size: 100pt; }
+  .image-picker .ion-plus {
+    font-size: 30pt; }
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  position: relative; }
+  .image-container img {
+    height: 80%;
+    width: 80%; }
+  .image-container .badge {
+    height: 25px;
+    width: 25px;
+    border-radius: 12.5px;
+    box-shadow: 0px 2px 2px 0px #aaa;
+    padding: 5px 0 0 0;
+    position: absolute;
+    right: 33px;
+    top: -10px; }

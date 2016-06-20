@@ -1,0 +1,30 @@
+<ion-view view-title="Elenco Migranti San Francesco" ng-controller="ListCtrl"  hide-back-button="true">
+<ion-nav-buttons side="right">
+    <button class="button button-icon icon ion-android-search" ng-click="showFilterBar()">
+    </button>
+  </ion-nav-buttons>
+  <ion-content>
+    <ion-list show-reorder="reordering">
+      <ion-item class="item item-avatar" collection-repeat="user in anagraficamigranti track by user.$id" divider-collection-repeat>
+		<img ng-if="!user.image"  src="img/imageplaceholder40x40.png">
+		<img ng-if="user.image"  src="{{user.image}}">
+		 <h2>{{user.nome}} - {{user.cognome}}</h2>
+         <p>{{user.cittadinanza}}</p>
+		  <p>{{user.centro}}</p>
+
+         <ion-reorder-button class="ion-drag" on-reorder="move(user, $fromIndex, $toIndex)"></ion-reorder-button>
+		 <ion-option-button class="button-balanced" ng-click="stampa(user)">Stampa</ion-option-button>
+         <ion-option-button class="button-calm" ng-click="modifica(user)">Modifica</ion-option-button>
+          <ion-option-button class="button-assertive icon-left ion-trash-b" ng-click="remove(user)">Elimina</ion-option-button>
+      </ion-item>
+    </ion-list>
+    <br><br><br>
+  </ion-content>
+  <div class="bar bar-footer bar-stable">
+	  <div class="row">
+	  	<a href="#/add" class="col button button-balanced ion-person-add">Nuovo Mig.</a>
+	  	<a href="#/visual" class="col button button-energized ion-pie-graph">Statistiche</a>
+	  	<button class="col button button-royal icon-left ion-shuffle" ng-click="toggleReordering()">Reordina</button>
+  	</div>
+  </div>
+</ion-view>

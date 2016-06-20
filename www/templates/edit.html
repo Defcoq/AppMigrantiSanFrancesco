@@ -1,0 +1,130 @@
+<ion-view view-title="Nuovo-Aggiorna Migrante">
+	<ion-content>
+		<div class="list card">
+		
+		<div class="item item-input item-select">
+				<div class="input-label">
+			    Centro di accoglienza
+			  </div>
+			 <select ng-model="user.centro" ng-options="centro.nome as centro.nome for centro in centri"></select>
+			 
+			</div>
+		
+	<label class="item item-input item-stacked-label">
+   <span class="input-label">Cognome</span>
+   <input type="text" placeholder="" ng-model="user.cognome" focus-me>
+   </label>
+   
+   <label class="item item-input item-stacked-label">
+   <span class="input-label">Nome</span>
+   <input type="text" placeholder="" ng-model="user.nome">
+   </label>
+   
+   <label class="item item-input item-stacked-label">
+   <span class="input-label">Codice Fiscale</span>
+   <input type="text" placeholder="" ng-model="user.codicefiscale" >
+   </label>
+   
+  <label class="item item-input item-stacked-label">
+   <span class="input-label">Data Nasciata</span>
+   <input type="text" ng-click="showDataNascitaPicker()" /> <span ><i class="icon ion-calendar"></i></span>
+    <input type="text" ng-model ="user.datanascita" />
+   </label>
+   
+    <label class="item item-input item-stacked-label">
+   <span class="input-label">Luogo Nascita</span>
+   <input type="text" ion-autocomplete  item-value-key="name" item-view-value-key="name" max-selected-items="1" readonly="readonly" class="ion-autocomplete" autocomplete="off"   items-method="callbackMethod(query)"  ng-model="user.luogonascita">
+   </label>
+
+     <label class="item item-input item-stacked-label">
+   <span class="input-label">Provenienza</span>
+   <input type="text" ion-autocomplete item-value-key="name" item-view-value-key="name" max-selected-items="1" readonly="readonly" class="ion-autocomplete" autocomplete="off"   items-method="callbackMethod(query)" ng-model="user.provenienza" >
+   </label>
+   
+   
+     <label class="item item-input item-stacked-label">
+   <span class="input-label">Cittadinanza</span>
+   <input type="text" placeholder="" ng-model="user.cittadinanza" >
+   </label>
+   
+   <label class="item item-input item-stacked-label">
+   <span class="input-label">Data Ingresso</span>
+    <input type="text" ng-click="showDataIngressoPicker()" /> <span ><i class="icon ion-calendar"></i></span>
+    <input type="text" ng-model ="user.dataingresso" />
+   </label>
+   
+    <label class="item item-input item-stacked-label">
+   <span class="input-label">Paesi Transitati:</span>
+   <input type="text"  ng-model="user.paesetransito" >
+   </label>
+   
+   
+    <label class="item item-input item-stacked-label">
+   <span class="input-label">Lingue Parlate:</span>
+   <input type="text" placeholder="" ng-model="user.linguaparlata" >
+   </label>
+   
+    <label class="item item-input item-stacked-label">
+   <span class="input-label">Religione:</span>
+   <input type="text" placeholder="" ng-model="user.religione" >
+   </label>
+   
+    <label class="item item-input item-stacked-label">
+   <span class="input-label">Primo Centro Accoglianza:</span>
+   <input type="text" placeholder="" ng-model="user.primocentrodiaccoglianza" >
+   </label>
+   
+   
+    <label class="item item-input item-stacked-label">
+   <span class="input-label">Indirizzo Centro:</span>
+   <input type="text" placeholder="" ng-model="user.indirizzocentro" >
+   </label>
+   
+   
+   <label class="item item-input item-stacked-label">
+   <span class="input-label">Medico Curante:</span>
+   <input type="text" placeholder="" ng-model="user.medicocurante" >
+   </label>
+   
+   
+    <label class="item item-input item-stacked-label">
+   <span class="input-label">Situazione Sanitaria:</span>
+   <input type="text" placeholder="" ng-model="user.situazionesanitario" >
+   </label>
+   
+    <label class="item item-input item-stacked-label">
+   <span class="input-label">Data Commissione</span>
+    <input type="text" ng-click="showDataCommissionePicker()" /> <span ><i class="icon ion-calendar"></i></span>
+    <input type="text" ng-model ="user.datacommissione" />
+   </label>
+   
+    <label class="item item-input item-stacked-label">
+   <span class="input-label">Esito Commissione:</span>
+   <input type="text" placeholder="" ng-model="user.esitocommissione" >
+   </label>
+   
+   
+    <label class="item item-input item-stacked-label">
+   <span class="input-label">Ricorso:</span>
+   <input type="text" placeholder="" ng-model="user.ricorso" >
+   </label>
+   
+   
+    <label class="item item-input item-stacked-label">
+   <span class="input-label">Studio Avvocato:</span>
+   <input type="text" placeholder="" ng-model="user.studioavvocato" >
+   </label>
+   
+    <label class="item item-input item-stacked-label">
+   <span class="input-label">Note:</span>
+   <input type="text" placeholder="" ng-model="user.note" >
+   </label>
+  
+  <bb-image-picker user="user"></bb-image-picker>
+			
+			<div class="padding">
+				<button class="button button-block button-positive" ng-click="save()">Save</button>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>
