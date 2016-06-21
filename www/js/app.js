@@ -99,6 +99,19 @@
                 }
               }
     });
+	
+	//deleteconfirm
+	
+	 $stateProvider.state('deleteconfirm', {
+      url: '/deleteconfirm',
+      templateUrl: 'templates/deleteconfirm.html',
+      controller: 'DeleteConfirmCtrl',
+	  		resolve: {
+                user: function($firebaseAuthService) {
+                  return $firebaseAuthService.$requireAuth();
+                }
+              }
+    });
 
     $stateProvider.state('visual', {
       url: '/visual',
@@ -115,7 +128,7 @@
 
   });
 
-  app.controller('ListCtrl', function($scope,$state, UserStore,$ionicFilterBar,$firebaseArray,FBURL,FBURLCountries,FBURLCentri,$ionicLoading){
+  app.controller('ListCtrl', function($scope,$state, UserStore,$ionicFilterBar,$firebaseArray,FBURL,FBURLCountries,FBURLCentri,$ionicLoading,$ionicPopup, $timeout){
    
   
   var filterBarInstance;
@@ -141,10 +154,26 @@
 	{
 	  console.log(err);
 	});
+	
+	// A confirm dialog
+ 
 
     $scope.remove = function(user){
-      UserStore.remove(user.$id);
-	  
+	var confirmPopup = $ionicPopup.confirm({
+     title: 'Elimina Anagrafica',
+     template: 'Sei sicuro di volere eliminare definitivamente questo record?'
+   });
+   
+    confirmPopup.then(function(res) {
+     if(res) {
+       console.log('You are sure');
+	    UserStore.remove(user.$id);
+		$state.go('deleteconfirm');
+     } else {
+       console.log('You are not sure');
+	   $state.go('list');
+     }
+   }); 
     }
 	
 	$scope.stampa = function(user)
@@ -545,6 +574,14 @@
       UserStore.update($scope.user);
       $state.go('list');
     };
+  });
+  
+    app.controller('DeleteConfirmCtrl', function($scope, $state, UserStore,FBURL,FBURLCountries,FBURLCentri,$firebaseObject,$firebaseArray){
+	
+	$scope.tornaanagrafica = function()
+	{
+	  $state.go('list');
+	}
   });
 
   app.controller('VisualCtrl', function($scope, $state, UserStore,FBURL,FBURLCountries,FBURLCentri,$firebaseObject,$firebaseArray){

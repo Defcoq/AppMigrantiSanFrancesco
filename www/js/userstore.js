@@ -64,7 +64,7 @@ angular.module('UserDirectory.userstore', ['constants','firebase'])
 		   var ref = new Firebase(FBURL + userId);
            var user = $firebaseObject(ref);
            user.$remove();
-		  $state.go('list');
+		  $state.go('deleteconfirm')
 		  
 		  },
 
