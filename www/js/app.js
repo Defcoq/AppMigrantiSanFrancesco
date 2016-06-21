@@ -115,12 +115,32 @@
 
   });
 
-  app.controller('ListCtrl', function($scope,$state, UserStore,$ionicFilterBar,$firebaseArray,FBURL,FBURLCountries,FBURLCentri){
+  app.controller('ListCtrl', function($scope,$state, UserStore,$ionicFilterBar,$firebaseArray,FBURL,FBURLCountries,FBURLCentri,$ionicLoading){
    
   
   var filterBarInstance;
     $scope.reordering = false;
-    $scope.anagraficamigranti = UserStore.list();
+    //$scope.anagraficamigranti = UserStore.list();
+	//$ionicLoading
+	   $ionicLoading.show({
+      template: 'Caricamento dei dati in corso...'
+    }).then(function(){
+       console.log("The loading indicator is now displayed");
+    });
+	var anagraficaMigranti = UserStore.list();
+	
+	anagraficaMigranti.$loaded().then(
+	function(data)
+	{
+	 $scope.anagraficamigranti = data;
+	 $ionicLoading.hide().then(function(){
+       console.log("The loading indicator is now hidden");
+    });
+	}
+	).catch(function(err)
+	{
+	  console.log(err);
+	});
 
     $scope.remove = function(user){
       UserStore.remove(user.$id);
