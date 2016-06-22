@@ -4,15 +4,15 @@
 			<ion-input class="item item-input item-stacked-label"
 				ng-class="{ 'has-errors' : signupForm.fullName.$invalid && signupForm.$submitted,
 				'no-errors' : signupForm.fullName.$valid && signupForm.$submitted}">
-				<ion-label >Name</ion-label>
-				<input type="text" name="fullName" placeholder="Your full name" ng-model="data.fullName" required>
+				<ion-label >Nome</ion-label>
+				<input type="text" name="fullName" placeholder="Il tuo nome completo" ng-model="data.fullName" required>
 			</ion-input>
 
 			<div class="error-container" ng-show="signupForm.fullName.$error && signupForm.$submitted"
 				ng-messages="signupForm.fullName.$error">
 	      <div class="error" ng-message="required">
 		      <i class="ion-information-circled"></i>
-		      This field is required.
+		    Questo campo è obbligatorio
 		    </div>
 	    </div>
 
@@ -20,18 +20,18 @@
 				ng-class="{ 'has-errors' : signupForm.email.$invalid && signupForm.$submitted,
 				'no-errors' : signupForm.email.$valid && signupForm.$submitted}">
 				<ion-label >Email</ion-label>
-				<input type="email" name="email" placeholder="Your email..." ng-model="data.email" required>
+				<input type="email" name="email" placeholder="la tua email..." ng-model="data.email" required>
 			</ion-input>
 
 			<div class="error-container" ng-show="signupForm.email.$error && signupForm.$submitted"
 				ng-messages="signupForm.email.$error">
 	      <div class="error" ng-message="required">
 		      <i class="ion-information-circled"></i>
-		      This field is required!
+		      Questo campo è obbligatorio
 		    </div>
 	      <div class="error" ng-show="signupForm.email.$invalid && !signupForm.email.$pristine">
 		      <i class="ion-information-circled"></i>
-		      This needs to be a valid email address
+		      Questo campo deve contenere un'indirizzo di posta valido
 		    </div>
 	    </div>
 
@@ -47,7 +47,7 @@
 				ng-messages="signupForm.password.$error">
 	      <div class="error" ng-message="required">
 		      <i class="ion-information-circled"></i>
-		      This field is required!
+		      Questo campo è obbligatorio
 		    </div>
 	    </div>
 
